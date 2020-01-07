@@ -111,18 +111,19 @@ public class SimulationEngine {
                     -particle.getSpeed().getX(),
                      particle.getSpeed().getY()));
             // UGLYYYY but idk how to do it
-            if (!(particle.getPosition().getX() + 2 * particle.getRadius() > 690)){
-                particle.setPosition(new Vector2D(
-                        1,
-                        particle.getPosition().getY()
-                ));
-            }
-            else {
-                particle.setPosition(new Vector2D(
-                        685 - 2 * particle.getRadius(),
-                        particle.getPosition().getY()
-                ));
-            }
+//            if (!(particle.getPosition().getX() + 2 * particle.getRadius() > 690)){
+//                particle.setPosition(new Vector2D(
+//                        1,
+//                        particle.getPosition().getY()
+//                ));
+//            }
+//            else {
+//                particle.setPosition(new Vector2D(
+//                        685 - 2 * particle.getRadius(),
+//                        particle.getPosition().getY()
+//                ));
+//            }
+            particle.updatePosition();
 
         }
 
@@ -131,19 +132,20 @@ public class SimulationEngine {
                     particle.getSpeed().getX(),
                     -particle.getSpeed().getY()));
             // UGLYYYY but idk how to do it
-            if(particle.getPosition().getY() <= 0) {
-                particle.setPosition(new Vector2D(
-                        particle.getPosition().getX(),
-                        1
-                ));
-            }
-            else {
-                particle.setPosition(new Vector2D(
-                        particle.getPosition().getX(),
-                        655 - 2 * particle.getRadius()
-                ));
-            }
+//            if(particle.getPosition().getY() <= 0) {
+//                particle.setPosition(new Vector2D(
+//                        particle.getPosition().getX(),
+//                        1
+//                ));
+//            }
+//            else {
+//                particle.setPosition(new Vector2D(
+//                        particle.getPosition().getX(),
+//                        655 - 2 * particle.getRadius()
+//                ));
+//            }
 
+            particle.updatePosition();
         }
 
         // Particles collision
@@ -164,6 +166,10 @@ public class SimulationEngine {
                 Vector2D tmp = p.getSpeed();
                 p.setSpeed(particle.getSpeed());
                 particle.setSpeed(tmp);
+
+                // Update position to prevent glitches
+                particle.updatePosition();
+                p.updatePosition();
             }
 
         }

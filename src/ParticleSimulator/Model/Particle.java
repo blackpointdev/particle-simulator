@@ -3,9 +3,9 @@ package ParticleSimulator.Model;
 import static ParticleSimulator.Model.Vector2D.add;
 
 public class Particle {
-    Vector2D position;
-    Vector2D speed;
-    double radius;
+    private Vector2D position;
+    private Vector2D speed;
+    private double radius;
 
     public Particle(Vector2D position, double radius) {
         this.position = position;
