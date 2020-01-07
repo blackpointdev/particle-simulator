@@ -11,10 +11,10 @@ import java.util.Random;
 
 public class SimulationEngine {
     private ArrayList<Particle> particles;
-    private GraphicsContext gc;
-    private Thread simulationThread;
-    private SimulationState simulationState;
-    private StateManager stateManager;
+    private GraphicsContext     gc;
+    private Thread              simulationThread;
+    private SimulationState     simulationState;
+    private StateManager        stateManager;
 
     public SimulationEngine(GraphicsContext gc) {
         this.particles = new ArrayList<Particle>();

@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.io.*;
 
 public class StateManager {
-    private ArrayList<Particle> particles;
-    private ArrayList<State> stateRepository;
+    private ArrayList<State>    stateRepository;
 
     public StateManager() {
         stateRepository = new ArrayList<State>();
