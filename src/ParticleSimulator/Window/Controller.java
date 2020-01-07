@@ -32,7 +32,7 @@ public class Controller implements Initializable {
     public void startSimulationClicked(MouseEvent mouseEvent) {
         // Check if simulation isn't already running, we don't want to create more than one thread
         if (simulationEngine.getSimulationState() == SimulationState.RUNNING) return;
-        simulationEngine.generateParticles(30);
+        simulationEngine.generateParticles(10);
         simulationEngine.startSimulation();
     }
 

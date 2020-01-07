@@ -106,44 +106,19 @@ public class SimulationEngine {
 
     private void collisionCheck(Particle particle) {
         // Walls collision
-        if ((particle.getPosition().getX() <= 0) || (particle.getPosition().getX() + 2 * particle.getRadius() > 690)) {
+        if ((particle.getPosition().getX() <= 0) || (particle.getPosition().getX() + 2 * particle.getRadius() >= 690)) {
             particle.setSpeed(new Vector2D(
                     -particle.getSpeed().getX(),
                      particle.getSpeed().getY()));
-            // UGLYYYY but idk how to do it
-//            if (!(particle.getPosition().getX() + 2 * particle.getRadius() > 690)){
-//                particle.setPosition(new Vector2D(
-//                        1,
-//                        particle.getPosition().getY()
-//                ));
-//            }
-//            else {
-//                particle.setPosition(new Vector2D(
-//                        685 - 2 * particle.getRadius(),
-//                        particle.getPosition().getY()
-//                ));
-//            }
+
             particle.updatePosition();
 
         }
 
-        if ((particle.getPosition().getY() <= 0) || (particle.getPosition().getY() + 2 * particle.getRadius() > 660)) {
+        if ((particle.getPosition().getY() <= 0) || (particle.getPosition().getY() + 2 * particle.getRadius() >= 660)) {
             particle.setSpeed(new Vector2D(
                     particle.getSpeed().getX(),
                     -particle.getSpeed().getY()));
-            // UGLYYYY but idk how to do it
-//            if(particle.getPosition().getY() <= 0) {
-//                particle.setPosition(new Vector2D(
-//                        particle.getPosition().getX(),
-//                        1
-//                ));
-//            }
-//            else {
-//                particle.setPosition(new Vector2D(
-//                        particle.getPosition().getX(),
-//                        655 - 2 * particle.getRadius()
-//                ));
-//            }
 
             particle.updatePosition();
         }
@@ -153,10 +128,10 @@ public class SimulationEngine {
             if (p == particle) continue;
             Vector2D centerPos = new Vector2D(
                     particle.getPosition().getX() + particle.getRadius(),
-                    particle.getPosition().getY() - particle.getRadius());
+                    particle.getPosition().getY() + particle.getRadius());
             Vector2D pCenterPos = new Vector2D(
                     p.getPosition().getX() + p.getRadius(),
-                    p.getPosition().getY() - p.getRadius());
+                    p.getPosition().getY() + p.getRadius());
 
             double distance = Math.sqrt(
                     Math.pow((pCenterPos.getX() - centerPos.getX()), 2)
@@ -188,8 +163,8 @@ public class SimulationEngine {
             x = randEngine.nextInt(300) + 200;
             y = randEngine.nextInt(300) + 200;
             radius = randEngine.nextInt(10) + 10;
-            velX = randEngine.nextInt(15) - 7;
-            velY = randEngine.nextInt(15) - 7;
+            velX = randEngine.nextInt(10) - 5;
+            velY = randEngine.nextInt(10) - 5;
 
             Particle particle = new Particle(
                     new Vector2D(x, y),

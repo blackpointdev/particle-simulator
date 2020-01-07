@@ -4,6 +4,7 @@ import ParticleSimulator.Model.Particle;
 import ParticleSimulator.Model.State;
 
 import java.util.ArrayList;
+import java.io.*;
 
 public class StateManager {
     private ArrayList<Particle> particles;
